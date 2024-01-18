@@ -5,10 +5,26 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Stack(children: [
-        Image.asset(''),
-      ]),
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        leading: InkWell(
+          child: Image.asset('assets/images/menu.png'),
+          onTap: () {
+            Scaffold.of(context).openDrawer();
+          },
+        ),
+        actions: [
+          const Padding(
+            padding: EdgeInsets.only(right: 5),
+            child: Icon(
+              Icons.notifications,
+              size: 32,
+            ),
+          ),
+        ],
+      ),
+      drawer: const Drawer(),
     );
   }
 }
