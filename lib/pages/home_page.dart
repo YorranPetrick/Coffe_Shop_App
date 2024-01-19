@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../components/coffe_varieties.dart';
+import '../components/gridview_coffe.dart';
 import '../components/search-bar.dart';
 
 class HomePage extends StatelessWidget {
@@ -42,6 +43,7 @@ class HomePage extends StatelessWidget {
             SearchBarComponents(),
             SizedBox(height: 12),
             CoffeVarieties(),
+            GradViewCoffe(),
           ],
         ),
       ),
