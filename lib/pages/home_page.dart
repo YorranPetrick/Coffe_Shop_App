@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../components/coffe_varieties.dart';
+import '../components/search-bar.dart';
+
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -23,8 +26,25 @@ class HomePage extends StatelessWidget {
             ),
           ),
         ],
+        bottom: const PreferredSize(
+          preferredSize: Size.fromHeight(40.0),
+          child: Text(
+            'It´s a Great day for Coffe',
+            style: TextStyle(color: Colors.white, fontSize: 25),
+          ),
+        ),
       ),
       drawer: const Drawer(),
+      body: const Padding(
+        padding: EdgeInsets.only(top: 20.0),
+        child: Column(
+          children: [
+            SearchBarComponents(),
+            SizedBox(height: 12),
+            CoffeVarieties(),
+          ],
+        ),
+      ),
     );
   }
 }
