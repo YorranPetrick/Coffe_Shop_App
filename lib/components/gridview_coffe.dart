@@ -17,29 +17,29 @@ class GradViewCoffe extends StatelessWidget {
           mainAxisSpacing: 8,
           crossAxisSpacing: 8,
           children: [
-            CardGridView(
+            const CardGridView(
               coffeeImage: 'assets/images/Latte.png',
               nameCoffee: 'Latte',
-              descriptionCoffee: 'Best Coffe',
-              valueCoffee: '\$ 30',
+              descriptionCoffee: 'Volume: 200ml',
+              valueCoffee: '30',
             ),
-            CardGridView(
+            const CardGridView(
               coffeeImage: 'assets/images/Espresso.png',
               nameCoffee: 'Espresso',
-              descriptionCoffee: 'Best Coffe',
-              valueCoffee: '\$ 25',
+              descriptionCoffee: 'Volume: 150ml',
+              valueCoffee: '25',
             ),
-            CardGridView(
+            const CardGridView(
               coffeeImage: 'assets/images/Black Coffee.png',
               nameCoffee: 'Black Coffee',
-              descriptionCoffee: 'Best Coffe',
-              valueCoffee: '\$ 15',
+              descriptionCoffee: 'Volume: 150ml',
+              valueCoffee: '15',
             ),
-            CardGridView(
+            const CardGridView(
               coffeeImage: 'assets/images/Cold Coffee.png',
               nameCoffee: 'Cold Coffee',
-              descriptionCoffee: 'Best Coffe',
-              valueCoffee: '\$ 20',
+              descriptionCoffee: 'Volume: 600ml',
+              valueCoffee: '20',
             ),
           ],
         ),

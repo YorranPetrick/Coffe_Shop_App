@@ -68,7 +68,7 @@ class CardGridView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  valueCoffee,
+                  '\$ $valueCoffee',
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 16,

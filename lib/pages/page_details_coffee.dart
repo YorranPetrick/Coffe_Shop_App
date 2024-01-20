@@ -26,14 +26,14 @@ class _PageDetailsCoffeeState extends State<PageDetailsCoffee> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-      backgroundColor: Color(0xFF212325),
+      backgroundColor: const Color(0xFF212325),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           ImageBackgroundAppBar(
             imageCoffe: widget.coffeeImagePageDetails,
           ),
-          SizedBox(
+          const SizedBox(
             height: 15,
           ),
           Padding(
@@ -58,7 +58,17 @@ class _PageDetailsCoffeeState extends State<PageDetailsCoffee> {
                         fontSize: 25,
                       ),
                     ),
-                    CoffeQuantityValue(),
+                    const SizedBox(
+                      height: 25,
+                    ),
+                    CoffeQuantityValue(
+                      valueCoffeeVariable: double.tryParse(
+                              widget.valueCoffeePageDetails) ??
+                          0.0, // caso o valor do tryParse seja nulo o valor a ser passado para a variavel será 0.0
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
                   ],
                 ),
               ),
