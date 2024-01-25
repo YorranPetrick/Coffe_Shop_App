@@ -22,7 +22,7 @@ class HomePage extends StatelessWidget {
           const Padding(
             padding: EdgeInsets.only(right: 5),
             child: Icon(
-              Icons.notifications,
+              Icons.shopping_cart,
               size: 32,
             ),
           ),

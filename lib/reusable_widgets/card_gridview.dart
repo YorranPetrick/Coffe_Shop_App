@@ -1,19 +1,27 @@
 import 'package:flutter/material.dart';
 import '../pages/page_details_coffee.dart';
 
-class CardGridView extends StatelessWidget {
+class CardGridView extends StatefulWidget {
   final String coffeeImage;
   final String nameCoffee;
   final String descriptionCoffee;
   final String valueCoffee;
 
-  const CardGridView(
+  CardGridView(
       {required this.coffeeImage,
       required this.nameCoffee,
       required this.descriptionCoffee,
       required this.valueCoffee,
       Key? key})
       : super(key: key);
+
+  @override
+  State<CardGridView> createState() => _CardGridViewState();
+}
+
+class _CardGridViewState extends State<CardGridView> {
+  bool iconFavoriteColor = false;
+  bool containerIconFavorite = false;
 
   @override
   Widget build(BuildContext context) {
@@ -23,10 +31,10 @@ class CardGridView extends StatelessWidget {
           context,
           MaterialPageRoute(
               builder: (context) => PageDetailsCoffee(
-                    coffeeImagePageDetails: coffeeImage,
-                    nameCoffeePageDetails: nameCoffee,
-                    descriptionCoffeePageDetails: descriptionCoffee,
-                    valueCoffeePageDetails: valueCoffee,
+                    coffeeImagePageDetails: widget.coffeeImage,
+                    nameCoffeePageDetails: widget.nameCoffee,
+                    descriptionCoffeePageDetails: widget.descriptionCoffee,
+                    valueCoffeePageDetails: widget.valueCoffee,
                   )),
         );
       },
@@ -42,12 +50,12 @@ class CardGridView extends StatelessWidget {
             SizedBox(
               width: 100,
               height: 100,
-              child: Image.asset(coffeeImage),
+              child: Image.asset(widget.coffeeImage),
             ),
             SizedBox(
               width: double.infinity,
               child: Text(
-                nameCoffee,
+                widget.nameCoffee,
                 style: const TextStyle(
                   color: Colors.white,
                   fontSize: 20,
@@ -57,7 +65,7 @@ class CardGridView extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: Text(
-                descriptionCoffee,
+                widget.descriptionCoffee,
                 style: const TextStyle(
                   color: Colors.white60,
                   fontSize: 16,
@@ -68,7 +76,7 @@ class CardGridView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  '\$ $valueCoffee',
+                  '\$ ${widget.valueCoffee}',
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 16,
@@ -77,15 +85,33 @@ class CardGridView extends StatelessWidget {
                 Container(
                   width: 50,
                   height: 50,
-                  decoration: const BoxDecoration(
-                    color: Color(0xFFE57734),
-                    borderRadius: BorderRadius.only(
+                  decoration: BoxDecoration(
+                    color: containerIconFavorite
+                        ? Colors.white
+                        : Color(0xFFE57734),
+                    borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(50),
                     ),
                   ),
-                  child: const Expanded(
-                    child: Center(
-                      child: Icon(Icons.favorite),
+                  child: InkWell(
+                    onTap: () {
+                      setState(() {
+                        iconFavoriteColor = true;
+                        containerIconFavorite = true;
+                      });
+                    },
+                    onDoubleTap: () {
+                      setState(() {
+                        iconFavoriteColor = false;
+                        containerIconFavorite = false;
+                      });
+                    },
+                    child: Expanded(
+                      child: Center(
+                        child: Icon(Icons.favorite,
+                            color:
+                                iconFavoriteColor ? Colors.red : Colors.white),
+                      ),
                     ),
                   ),
                 ),

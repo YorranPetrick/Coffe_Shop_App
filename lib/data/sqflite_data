@@ -1,0 +1,20 @@
+import 'package:sqflite/sqflite.dart';
+import 'package:path/path.dart';
+
+Future<Database> getDataBase() async {
+  String path = join(await getDatabasesPath(), 'databasecoffe.db');
+  return openDatabase(
+    path,
+    onCreate: (db, version) {
+      db.execute(table);
+    },
+  );
+}
+
+const String table =
+    'CREATE DATABASE $_nameTable($_nameCoffe TEXT, $_valueCoffe REAL, $_pathImage TEXT)';
+
+const String _nameTable = 'appCoffe';
+const String _nameCoffe = 'nameCoffe';
+const String _valueCoffe = 'valueCoffe';
+const String _pathImage = 'pathImage';

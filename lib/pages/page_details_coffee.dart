@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../components/coffee_quantity_value.dart';
 import '../components/image_background_appbar.dart';
 
@@ -39,38 +38,32 @@ class _PageDetailsCoffeeState extends State<PageDetailsCoffee> {
           Padding(
             padding: const EdgeInsets.only(left: 20, right: 20),
             child: Expanded(
-              child: SizedBox(
-                width: double.infinity,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      widget.descriptionCoffeePageDetails,
-                      style: const TextStyle(
-                        color: Colors.white60,
-                        fontSize: 20,
-                      ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    widget.descriptionCoffeePageDetails,
+                    style: const TextStyle(
+                      color: Colors.white60,
+                      fontSize: 20,
                     ),
-                    Text(
-                      widget.nameCoffeePageDetails,
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 25,
-                      ),
+                  ),
+                  Text(
+                    widget.nameCoffeePageDetails,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 25,
                     ),
-                    const SizedBox(
-                      height: 25,
-                    ),
-                    CoffeQuantityValue(
-                      valueCoffeeVariable: double.tryParse(
-                              widget.valueCoffeePageDetails) ??
-                          0.0, // caso o valor do tryParse seja nulo o valor a ser passado para a variavel será 0.0
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                  ],
-                ),
+                  ),
+                  const SizedBox(
+                    height: 25,
+                  ),
+                  CoffeQuantityValue(
+                    valueCoffeeVariable: double.tryParse(
+                            widget.valueCoffeePageDetails) ??
+                        0.0, // caso o valor do tryParse seja nulo o valor a ser passado para a variavel será 0.0
+                  ),
+                ],
               ),
             ),
           )
